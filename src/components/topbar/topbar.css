@@ -1,6 +1,6 @@
 .topbar {
   width: 100%;
-  height: 50px;
+  height: 70px;
   background-color: white;
   position: sticky;
   top: 0;
@@ -16,15 +16,17 @@
 }
 
 .logo {
-  font-weight: bold;
+  width: 100px;
+  padding: 10px;
+  /* font-weight: bold;
   font-size: 30px;
   color: darkblue;
-  cursor: pointer;
+  cursor: pointer; */
 }
 
-.topRight{
-    display: flex;
-    align-items: center;
+.topRight {
+  display: flex;
+  align-items: center;
 }
 
 .topbarIconContainer {
@@ -34,24 +36,61 @@
   color: #555;
 }
 
-.topIconBadge{
-    width: 15px;
-    height: 15px;
-    position: absolute;
-    top: -5px;
-    right: 0px;
-    background-color: red;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
+.topIconBadge {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: -5px;
+  right: 0px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
 }
 
-.topAvatar{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
+.topAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
 }
+
+.options {
+  display: none;
+  background-color: gray;
+  color: white;
+  border-radius: 5px;
+}
+
+.options span {
+  display: flex;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.options .icons {
+  margin-right: 5px;
+}
+.profile:hover .options {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 10px;
+}
+
+/* .options {
+  display: none;
+  right: 10px;
+  color: white;
+  background-color: gray;
+  border-radius: 5px;
+} */
+
+/* .profile:hover {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+} */

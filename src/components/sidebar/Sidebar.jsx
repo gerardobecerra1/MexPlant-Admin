@@ -31,11 +31,13 @@ export default function Sidebar() {
                 Usuarios
               </li>
             </Link>
-            <li className="sidebarListItem">
-              <ClassOutlined className="sidebarIcon" />
-              Clasificaciones
-            </li>
-            <Link to="/plantas" className="link">
+            <Link to="/classifications" className="link">
+              <li className="sidebarListItem">
+                <ClassOutlined className="sidebarIcon" />
+                Clasificaciones
+              </li>
+            </Link>
+            <Link to="/plants" className="link">
               <li className="sidebarListItem">
                 <SpaOutlined className="sidebarIcon" />
                 Plantas

@@ -1,31 +1,56 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./topbar.css";
-import { NotificationsNone, Language, Settings } from "@material-ui/icons";
+import {
+  NotificationsNone,
+  Settings,
+  ExitToAppOutlined,
+  Person,
+} from "@material-ui/icons";
+import { AuthContext } from "../../context/authContext/AuthContext";
+import { logout } from "../../context/authContext/apiCalls";
 
-export default function Topbar() {
+export default function Topbar({ user }) {
+  const { dispatch } = useContext(AuthContext);
+  const handleLogout = () => {
+    logout(dispatch);
+    window.location.replace("http://localhost:4000/login");
+  };
+
   return (
     <div className="topbar">
       <div className="topbarWrapper">
         <div className="topLeft">
-          <span className="logo">Mexplant Admin</span>
+          <img
+            className="logo"
+            src="https://res.cloudinary.com/becerra-media/image/upload/v1653433646/images/MexPlant-Admin-Logo_b4zfhx.png"
+            alt="MexPlantLogo"
+          />
+          {/* <span className="logo">MexPlant Admin</span> */}
         </div>
         <div className="topRight">
           <div className="topbarIconContainer">
             <NotificationsNone />
             <span className="topIconBadge">2</span>
           </div>
-          <div className="topbarIconContainer">
-            <Language />
-            <span className="topIconBadge">2</span>
+          <div className="profile">
+            <img
+              src={user.image}
+              alt="Imagen del Usuario"
+              className="topAvatar"
+            />
+            <div className="options">
+              <span>
+                <Person className="icons" /> Perfil
+              </span>
+              <span>
+                <Settings className="icons" /> Configuraciones
+              </span>
+              <span onClick={() => handleLogout()}>
+                <ExitToAppOutlined className="icons" />
+                Logout
+              </span>
+            </div>
           </div>
-          <div className="topbarIconContainer">
-            <Settings />
-          </div>
-          <img
-            src="https://images.pexels.com/photos/1526814/pexels-photo-1526814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-            alt=""
-            className="topAvatar"
-          />
         </div>
       </div>
     </div>

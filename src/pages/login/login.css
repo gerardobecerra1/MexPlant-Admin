@@ -4,6 +4,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+.login .logo {
+  width: 350px;
+  padding: 30px;
 }
 
 .loginForm {
