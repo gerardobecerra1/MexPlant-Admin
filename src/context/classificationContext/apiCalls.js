@@ -18,7 +18,7 @@ export const getClassifications = async (dispatch) => {
   dispatch(getClassificationsStart());
   try {
     const res = await axios.get(
-      "http://localhost:8080/api/search/classifications",
+      "https://mexplant-api.herokuapp.com/api/search/classifications",
       {
         headers: { "x-token": JSON.parse(localStorage.getItem("user")).token },
       }
@@ -34,7 +34,7 @@ export const createClassification = async (classification, dispatch) => {
   dispatch(createClassificationStart());
   try {
     const res = await axios.post(
-      "http://localhost:8080/api/classifications",
+      "https://mexplant-api.herokuapp.com/api/classifications",
       classification,
       {
         headers: {
@@ -54,7 +54,7 @@ export const updateClassification = async (classification, dispatch) => {
   dispatch(updateClassificationStart());
   try {
     const res = await axios.put(
-      "http://localhost:8080/api/classifications/" + classification.id,
+      "https://mexplant-api.herokuapp.com/api/classifications/" + classification.id,
       classification,
       {
         headers: {
@@ -73,7 +73,7 @@ export const updateClassification = async (classification, dispatch) => {
 export const deleteClassification = async (id, dispatch) => {
   dispatch(deleteClassificationStart());
   try {
-    await axios.delete("http://localhost:8080/api/classifications//" + id, {
+    await axios.delete("https://mexplant-api.herokuapp.com/api/classifications//" + id, {
       headers: { "x-token": JSON.parse(localStorage.getItem("user")).token },
     });
     // console.log(res.data.results);

@@ -9,7 +9,7 @@ import {
 export const login = async (user, dispatch) => {
   dispatch(loginStart);
   try {
-    const res = await axios.post("http://localhost:8080/api/auth/login", user);
+    const res = await axios.post("https://mexplant-api.herokuapp.com/api/auth/login", user);
     if (res.data.userToken.role.name === "Administrador") {
       dispatch(loginSuccess(res.data.userToken));
     }

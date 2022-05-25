@@ -17,7 +17,7 @@ import {
 export const getPlants = async (dispatch) => {
   dispatch(getPlantsStart());
   try {
-    const res = await axios.get("http://localhost:8080/api/search/plants", {
+    const res = await axios.get("https://mexplant-api.herokuapp.com/api/search/plants", {
       headers: { "x-token": JSON.parse(localStorage.getItem("user")).token },
     });
     // console.log(res.data.results);
@@ -30,7 +30,7 @@ export const getPlants = async (dispatch) => {
 export const createPlant = async (plant, dispatch) => {
   dispatch(createPlantStart());
   try {
-    const res = await axios.post("http://localhost:8080/api/plants", plant, {
+    const res = await axios.post("https://mexplant-api.herokuapp.com/api/plants", plant, {
       headers: {
         "Content-Type": "multipart/form-data",
         "x-token": JSON.parse(localStorage.getItem("user")).token,
@@ -49,7 +49,7 @@ export const updatePlant = async (plant, dispatch) => {
   try {
     console.log(plant);
     const res = await axios.put(
-      "http://localhost:8080/api/plants/" + plant.id,
+      "https://mexplant-api.herokuapp.com/api/plants/" + plant.id,
       plant,
       {
         headers: {
@@ -69,7 +69,7 @@ export const updatePlant = async (plant, dispatch) => {
 export const deletePlant = async (id, dispatch) => {
   dispatch(deletePlantsStart());
   try {
-    await axios.delete("http://localhost:8080/api/plants/" + id, {
+    await axios.delete("https://mexplant-api.herokuapp.com/api/plants/" + id, {
       headers: { "x-token": JSON.parse(localStorage.getItem("user")).token },
     });
     // console.log(res.data.results);
