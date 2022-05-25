@@ -13,7 +13,7 @@ export default function Topbar({ user }) {
   const { dispatch } = useContext(AuthContext);
   const handleLogout = () => {
     logout(dispatch);
-    window.location.replace("https://mexplant-api.herokuapp.com/login");
+    window.location.replace("https://mexplant-admin.herokuapp.com/login");
   };
 
   return (
