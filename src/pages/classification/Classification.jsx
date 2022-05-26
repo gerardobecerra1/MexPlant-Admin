@@ -1,9 +1,9 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { updateClassification } from "../../context/classificationContext/apiCalls";
 import { ClassificationContext } from "../../context/classificationContext/ClassificationContext";
 import "./classification.css";
-// import { Publish } from "@material-ui/icons";
+
 
 export default function Product() {
   const location = useLocation();
@@ -15,7 +15,9 @@ export default function Product() {
   const handleChange = (e) => {
     updtClassification.id = classification._id;
     const value = e.target.value;
-    setUpdtClassification({ ...updtClassification, [e.target.name]: value });
+    if (value !== "") {
+      setUpdtClassification({ ...updtClassification, [e.target.name]: value });
+    }
   };
 
   const handleSubmit = (e) => {
@@ -28,9 +30,7 @@ export default function Product() {
       <div className="productTitleContainer">
         <h1 className="productTitle">Clasificación</h1>
         <Link to="/newclassification">
-          <button className="productAddButton">
-            Crear
-          </button>
+          <button className="productAddButton">Crear</button>
         </Link>
       </div>
       <div className="productTop">
@@ -58,7 +58,7 @@ export default function Product() {
               name="name"
               type="text"
               placeholder={classification.name}
-              onMouseLeave={handleChange}
+              onClick={handleChange}
             />
             <label>Nueva Descripción</label>
             <textarea
@@ -67,7 +67,7 @@ export default function Product() {
               name="description"
               rows="4"
               cols="50"
-              onMouseLeave={handleChange}
+              onClick={handleChange}
             ></textarea>
           </div>
           <div className="productFormRight">
