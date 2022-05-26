@@ -51,6 +51,11 @@ export default function ClassificationList() {
 
   return (
     <div className="productList">
+      <Link to="/newclassification">
+        <button style={{ margin: "10px" }} className="productAddButton">
+          Crear
+        </button>
+      </Link>
       <DataGrid
         rows={classifications}
         disableSelectionOnClick

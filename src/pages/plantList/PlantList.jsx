@@ -64,6 +64,11 @@ export default function PlantList() {
 
   return (
     <div className="productList">
+      <Link to="/newplant">
+        <button style={{ margin: "10px" }} className="productAddButton">
+          Crear
+        </button>
+      </Link>
       <DataGrid
         rows={plants}
         disableSelectionOnClick
